@@ -41,6 +41,7 @@ require (
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/mitchellh/reflectwalk v1.0.1
 	github.com/pierrec/lz4 v2.0.5+incompatible
+	github.com/pkg/errors v0.9.1
 	github.com/posener/complete v1.2.1 // indirect
 	github.com/spf13/afero v1.2.2
 	github.com/vmihailenco/msgpack v4.0.1+incompatible // indirect

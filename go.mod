@@ -14,9 +14,15 @@ require (
 	github.com/golang/mock v1.4.3
 	github.com/golang/snappy v0.0.1
 	github.com/google/go-cmp v0.5.2
+	github.com/hashicorp/consul v1.9.1
+	github.com/hashicorp/consul/api v1.9.1
+	github.com/hashicorp/consul/sdk v0.8.0
 	github.com/hashicorp/errwrap v1.0.0
 	github.com/hashicorp/go-cleanhttp v0.5.1
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320
+	github.com/tencentcloud/tencentcloud-sdk-go v3.0.83+incompatible
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.252
+	github.com/tencentyun/cos-go-sdk-v5 v0.0.0-20190808065407-f07404cefc8c
 	github.com/hashicorp/go-getter v1.5.0 // indirect
 	github.com/hashicorp/go-hclog v0.15.0
 	github.com/hashicorp/go-multierror v1.0.0

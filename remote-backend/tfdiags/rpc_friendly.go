@@ -1,10 +1,10 @@
 package tfdiags
 
 import (
-	gob2 "encoding/gob"
+	"encoding/gob"
 )
 
-type rpcFriendlyDiag struct {
+type rpcFriendlyDiag2 struct {
 	Severity_ Severity
 	Summary_  string
 	Detail_   string
@@ -21,7 +21,7 @@ type rpcFriendlyDiag struct {
 func makeRPCFriendlyDiag(diag Diagnostic) Diagnostic {
 	desc := diag.Description()
 	source := diag.Source()
-	return &rpcFriendlyDiag{
+	return &rpcFriendlyDiag2{
 		Severity_: diag.Severity(),
 		Summary_:  desc.Summary,
 		Detail_:   desc.Detail,
@@ -30,30 +30,30 @@ func makeRPCFriendlyDiag(diag Diagnostic) Diagnostic {
 	}
 }
 
-func (d *rpcFriendlyDiag) Severity() Severity {
+func (d *rpcFriendlyDiag2) Severity() Severity {
 	return d.Severity_
 }
 
-func (d *rpcFriendlyDiag) Description() Description {
+func (d *rpcFriendlyDiag2) Description() Description {
 	return Description{
 		Summary: d.Summary_,
 		Detail:  d.Detail_,
 	}
 }
 
-func (d *rpcFriendlyDiag) Source() Source {
+func (d *rpcFriendlyDiag2) Source() Source {
 	return Source{
 		Subject: d.Subject_,
 		Context: d.Context_,
 	}
 }
 
-func (d rpcFriendlyDiag) FromExpr() *FromExpr {
+func (d rpcFriendlyDiag2) FromExpr() *FromExpr {
 	// RPC-friendly diagnostics cannot preserve expression information because
 	// expressions themselves are not RPC-friendly.
 	return nil
 }
 
 func init() {
-	gob2.Register((*rpcFriendlyDiag)(nil))
+	gob.Register((*rpcFriendlyDiag2)(nil))
 }

@@ -2,7 +2,7 @@ package tfdiags
 
 import (
 	"bytes"
-	gob2 "encoding/gob"
+	gob "encoding/gob"
 	"fmt"
 	"reflect"
 	"testing"
@@ -29,8 +29,8 @@ func TestDiagnosticsForRPC(t *testing.T) {
 	})
 
 	buf := bytes.Buffer{}
-	enc := gob2.NewEncoder(&buf)
-	dec := gob2.NewDecoder(&buf)
+	enc := gob.NewEncoder(&buf)
+	dec := gob.NewDecoder(&buf)
 
 	rpcDiags := diags.ForRPC()
 	err := enc.Encode(rpcDiags)
@@ -45,15 +45,15 @@ func TestDiagnosticsForRPC(t *testing.T) {
 	}
 
 	want := Diagnostics{
-		&rpcFriendlyDiag{
+		&rpcFriendlyDiag2{
 			Severity_: Error,
 			Summary_:  "bad",
 		},
-		&rpcFriendlyDiag{
+		&rpcFriendlyDiag2{
 			Severity_: Warning,
 			Summary_:  "less bad",
 		},
-		&rpcFriendlyDiag{
+		&rpcFriendlyDiag2{
 			Severity_: Error,
 			Summary_:  "bad bad bad",
 			Detail_:   "badily bad bad",
